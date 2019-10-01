@@ -1,4 +1,6 @@
 /* eslint-disable semi */
+/* eslint-disable no-console */
+
 const express = require('express')
 const bodyParser = require('body-parser')
 
@@ -29,6 +31,12 @@ app.get('/about', (req, res) => {
 app.get('/random', (req, res) => {
   const { n } = req.query
   const value = random(n)
+  res.json({ value })
+})
+
+app.get('/rolldie', (req, res) => {
+  const { n } = req.query
+  const value = randomD(n)
   res.json({ value })
 })
 
